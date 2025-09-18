@@ -1,9 +1,11 @@
 const mongoose = require("mongoose");
 
-function connectToDB(){
-    mongoose.connect(process.env.DB_CONNECTION_STRING, { useNewUrlParser: true, useUnifiedTopology: true })
-    .then(() => console.log("Connected to DB"))
+function connectToDb() {
+  mongoose
+    .connect(process.env.DB_CONNECT)
+    .then(() => {
+      console.log("COnnected to DB");
+    })
     .catch((err) => console.log(err));
 }
-
-module.exports = connectToDB;
+module.exports = connectToDb;
