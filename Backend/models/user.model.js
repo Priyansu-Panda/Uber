@@ -34,7 +34,7 @@ const userSchema = new mongoose.Schema({
 userSchema.methods.generateAuthToken = function () {
   // "this" points to the user document
     //   and this will conatin the id of the user
-    const token = jwt.sign({ _id: this._id}, process.env.JWT_SECRET || 'your-secret-key', {expiresIn: '1h'});       // If you accidentally use an arrow function instead of function(), this won't point to the document, and this._id will be undefined
+    const token = jwt.sign({ _id: this._id}, process.env.JWT_SECRET || 'your-secret-key', {expiresIn: '24h'});       // If you accidentally use an arrow function instead of function(), this won't point to the document, and this._id will be undefined
     return token;
 }
 
